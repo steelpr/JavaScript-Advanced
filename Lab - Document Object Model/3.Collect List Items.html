@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Collect List Items</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <ul id="items">
+            <li>first item</li>
+            <li>second item</li>
+            <li>third item</li>
+        </ul>
+        <textarea id="result"></textarea>
+        <br>
+        <button onclick="extractText()">Extract Text</button>
+        <script>
+            function extractText() {
+                let element = document.querySelectorAll('#items li');
+                let result = document.getElementById('result');
+                result.value = '';
+                
+                for (var i = 0; i < element.length; i++) {
+                    result.value += element[i].textContent + '\n';
+                }
+            }
+        </script>
+    </body>
+</html>

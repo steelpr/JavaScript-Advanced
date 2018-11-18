@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Extract Parentheses</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p id="text">The (Balkans), also known as the Balkan Peninsula,
+            or (Southeast Europe) is a geographic area in (Europe) with various definitions.</p>
+
+        <h1>
+            Output:
+            <p id="output"></p>
+        </h1>
+        <script>
+            function output(id) {
+                let text = document.getElementById(id).textContent;
+                let pattern = /\(([\s\S]+?)\)/gm;
+
+                let elements = [];
+
+                let match = pattern.exec(text);
+                while (match) {
+                    elements.push(match[1]);
+                    match = pattern.exec(text);
+                }
+
+                return elements.join('; ');
+            }
+
+            let outputText = document.getElementById('output');
+            outputText.textContent = output('text');
+        </script>
+    </body>
+</html>
